@@ -2,7 +2,7 @@ import React, {lazy} from 'react';
 import ReactDOM, { createRoot } from 'react-dom/client';
 import './index.css';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
-import App from './App';
+
 import reportWebVitals from './reportWebVitals';
 
 const Home = lazy(() => import('./pages/HomePage'));
