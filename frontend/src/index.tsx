@@ -2,6 +2,7 @@ import React, {lazy} from 'react';
 import ReactDOM, { createRoot } from 'react-dom/client';
 import './index.css';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
+import Header from './component/Header';
 
 import reportWebVitals from './reportWebVitals';
 
@@ -13,6 +14,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <BrowserRouter>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
