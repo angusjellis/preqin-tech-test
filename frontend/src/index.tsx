@@ -1,5 +1,5 @@
 import React, {lazy} from 'react';
-import ReactDOM, { createRoot } from 'react-dom/client';
+import ReactDOM from 'react-dom/client';
 import './index.css';
 import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import Header from './component/Header';
