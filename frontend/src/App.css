@@ -2,17 +2,17 @@
 /* CSS Document */
 
 /* ---------------------------------------------------------
-	
+
 	* Filename:				default.css
-	* Description: 			sets typography, basic grids, 
+	* Description: 			sets typography, basic grids,
 							and standard formstyles
 	* Version:				1.0.0 (2012-06-16)
 	* Author:				Ryan Martinez
-	
+
 	== INDEX ===============================================
-	
+
 	$__generic classes		classes used globally, should be at bottom to prevent semantic inheritance
-	
+
 ------------------------------------------------------------*/
 
 /*-------------------------------------*/
@@ -761,11 +761,9 @@ li p {
   border: 1px solid #c9c9c9;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  -webkit-box-shadow:
-    0px 1px 0px 0px rgba(255, 255, 255, 0.8),
+  -webkit-box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.8),
     inset 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
-  box-shadow:
-    0px 1px 0px 0px rgba(255, 255, 255, 0.8),
+  box-shadow: 0px 1px 0px 0px rgba(255, 255, 255, 0.8),
     inset 0px 1px 2px 0px rgba(0, 0, 0, 0.1);
   color: #333;
   font-size: 12px;
@@ -905,11 +903,9 @@ a.dnnPrimaryAction {
     #2170cd 100%
   ); /* Chrome10+,Safari5.1+ */
   background: linear-gradient(top, #358eea 0%, #2170cd 100%); /* W3C */
-  -webkit-box-shadow:
-    0px 1px 0px 0px rgba(0, 0, 0, 0.6),
+  -webkit-box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.6),
     inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4);
-  box-shadow:
-    0px 1px 0px 0px rgba(0, 0, 0, 0.6),
+  box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.6),
     inset 0px 1px 0px 0px rgba(255, 255, 255, 0.4);
   color: #efefef;
   text-shadow: 0px -1px 0px #185b93;

@@ -61,7 +61,7 @@ function FirmTable(firms: Firm[]) {
                     ? null
                     : flexRender(
                         header.column.columnDef.header,
-                        header.getContext(),
+                        header.getContext()
                       )}
                 </th>
               ))}
