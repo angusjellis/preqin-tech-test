@@ -1,88 +1,49 @@
 import React from "react";
 import { Firm } from "../types";
-import {
-  useReactTable,
-  createColumnHelper,
-  flexRender,
-  getCoreRowModel,
-} from "@tanstack/react-table";
+import "../App.css";
 
-function FirmTable(firms: Firm[]) {
-  const columnHelper = createColumnHelper<Firm>();
+import { DataGrid, GridRowParams } from "@mui/x-data-grid";
+import { useTheme } from "@mui/material/styles";
+
+function FirmTableDataGrid(firms: Firm[]) {
+  const SERVER_URL = "http://localhost:3000";
   const columns = [
-    columnHelper.accessor((row) => row.firm_id, {
-      id: "firmId",
-      cell: (info) => <i>{info.getValue()}</i>,
-      header: () => <span style={{ textAlign: "left" }}>Firm ID</span>,
-      footer: (info) => info.column.id,
-    }),
-    columnHelper.accessor((row) => row.firm_name, {
-      id: "firmName",
-      cell: (info) => <i>{info.getValue()}</i>,
-      header: () => <span style={{ textAlign: "left" }}>Firm Name</span>,
-      footer: (info) => info.column.id,
-    }),
-    columnHelper.accessor((row) => row.firm_type, {
-      id: "firmType",
-      cell: (info) => <i>{info.getValue()}</i>,
-      header: () => <span style={{ textAlign: "left" }}>Firm Type</span>,
-      footer: (info) => info.column.id,
-    }),
-    columnHelper.accessor((row) => row.date_added_human_readable, {
-      id: "dateAddedHumanReadable",
-      cell: (info) => <i>{info.getValue()}</i>,
-      header: () => <span style={{ textAlign: "left" }}>Date Added</span>,
-      footer: (info) => info.column.id,
-    }),
-    columnHelper.accessor((row) => row.address, {
-      id: "address",
-      cell: (info) => <i>{info.getValue()}</i>,
-      header: () => <span style={{ textAlign: "left" }}>Address</span>,
-      footer: (info) => info.column.id,
-    }),
+    { field: "firm_id", headerName: "Firm ID", width: 150 },
+    { field: "firm_name", headerName: "Firm Name", width: 150 },
+    { field: "firm_type", headerName: "Firm Type", width: 150 },
+    {
+      field: "date_added_human_readable",
+      headerName: "Date Added",
+      width: 150,
+    },
+    { field: "address", headerName: "Address", width: 150 },
   ];
 
-  const data = React.useMemo(() => firms, [firms]);
-  const table = useReactTable({
-    data,
-    columns,
-    getCoreRowModel: getCoreRowModel(),
+  const navigateToIndividualFirm = (firm: Firm) => {
+    window.location.href = `${SERVER_URL}/firms/${firm.firm_id}`;
+  };
+
+  const rows = firms.map((firm) => {
+    return {
+      id: firm.firm_id,
+      firm_id: firm.firm_id,
+      firm_name: firm.firm_name,
+      firm_type: firm.firm_type,
+      date_added_human_readable: firm.date_added_human_readable,
+      address: firm.address,
+    };
   });
 
+  const onRowClick = (params: GridRowParams<Firm>) => {
+    const firm = params.row as Firm;
+    window.location.href = `${SERVER_URL}/firms/${firm.firm_id}`;
+  };
+
   return (
-    <div className="p-2">
-      <table>
-        <thead>
-          {table.getHeaderGroups().map((headerGroup) => (
-            <tr key={headerGroup.id}>
-              {headerGroup.headers.map((header) => (
-                <th key={header.id} style={{ textAlign: "left" }}>
-                  {header.isPlaceholder
-                    ? null
-                    : flexRender(
-                        header.column.columnDef.header,
-                        header.getContext()
-                      )}
-                </th>
-              ))}
-            </tr>
-          ))}
-        </thead>
-        <tbody>
-          {table.getRowModel().rows.map((row) => (
-            <tr key={row.id}>
-              {row.getVisibleCells().map((cell) => (
-                <td key={cell.id}>
-                  {flexRender(cell.column.columnDef.cell, cell.getContext())}
-                </td>
-              ))}
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <div className="h-4" />
+    <div style={{ height: 400, width: "100%" }}>
+      <DataGrid rows={rows} columns={columns} onRowClick={onRowClick} />
     </div>
   );
 }
 
-export default FirmTable;
+export default FirmTableDataGrid;
