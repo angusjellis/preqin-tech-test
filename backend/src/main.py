@@ -4,8 +4,8 @@ import json
 from typing import List
 from fastapi import FastAPI, HTTPException, Request
 from fastapi.middleware.cors import CORSMiddleware
-from src.models.firms import Firm
-from src.models.commitment import Commitment
+from .models.firms import Firm
+from .models.commitment import Commitment
 
 
 # set path for relative imports
@@ -27,6 +27,7 @@ ASSET_CLASSES = ["pe", "pd", "re", "inf", "nr", "hf"]
 data_file_path = os.path.join(
     os.path.dirname(os.path.realpath(__file__)), "db/data.json"
 )
+print(data_file_path)
 f = open(data_file_path)
 data = json.load(f)
 

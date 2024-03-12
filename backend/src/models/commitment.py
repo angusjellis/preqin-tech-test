@@ -1,5 +1,4 @@
 from pydantic import BaseModel, PositiveInt
-from src.models.firms import Firm
 
 
 class Commitment(BaseModel):
