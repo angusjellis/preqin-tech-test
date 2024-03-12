@@ -1,6 +1,5 @@
 from datetime import datetime
 from pydantic import BaseModel, PositiveInt, computed_field
-from src.lib.helpers import convert_datetime_to_human_readable
 
 
 class Firm(BaseModel):
@@ -19,9 +18,9 @@ class Firm(BaseModel):
     @computed_field(return_type=str)
     @property
     def date_added_human_readable(self):
-        return convert_datetime_to_human_readable(self.date_added)
+        return self.date_added.strftime("%d %b %Y")
 
     @computed_field(return_type=str)
     @property
     def established_at_human_readable(self):
-        return convert_datetime_to_human_readable(self.established_at)
+        return self.established_at.strftime("%d %b %Y")
