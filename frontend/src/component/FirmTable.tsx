@@ -28,8 +28,8 @@ function FirmTable(firms: Firm[]) {
       header: () => <span style={{ textAlign: "left" }}>Firm Type</span>,
       footer: (info) => info.column.id,
     }),
-    columnHelper.accessor((row) => row.date_added.substring(0, 10), {
-      id: "dateAdded",
+    columnHelper.accessor((row) => row.date_added_human_readable, {
+      id: "dateAddedHumanReadable",
       cell: (info) => <i>{info.getValue()}</i>,
       header: () => <span style={{ textAlign: "left" }}>Date Added</span>,
       footer: (info) => info.column.id,

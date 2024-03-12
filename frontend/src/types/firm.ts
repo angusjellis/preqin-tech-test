@@ -10,4 +10,6 @@ export interface Firm {
   country: string;
   address: string;
   postal_code: string;
+  date_added_human_readable: string;
+  established_at_human_readable: string;
 }
