@@ -65,3 +65,13 @@ def get_commitments(investor_id: int, asset_class: str) -> List[Commitment]:
             result.append(parsed_commitment)
 
     return result
+
+
+@app.get("/api/investor/{investor_id}")
+def get_investor(investor_id: int) -> Firm:
+    for firm in FIRMS:
+        if firm.firm_id == investor_id:
+            return firm
+    raise HTTPException(
+        status_code=404, detail=f"investor with id {investor_id} not found"
+    )
