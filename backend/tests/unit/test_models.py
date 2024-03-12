@@ -1,4 +1,4 @@
-from ...src.models.firms import Firm
+from src.models.firms import Firm
 
 test_firm = Firm(
     firm_id=10101,
